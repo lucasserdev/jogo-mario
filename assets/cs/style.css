@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid rgb(35, 160, 35);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    height: 75px;
+    animation: pipe-animation 1.5s infinite linear;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+.clouds {
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;
+}
+
+.point {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: "Silkscreen", sans-serif;
+    background-color: #3333332a;
+    border-radius: 10px;
+}
+
+.gameOver {
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    display: none;
+}
+
+.restart {
+    margin-top: 20px;
+    background-color: #F8FF0A;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 10px;
+    color: #E90004;
+    font-weight: 900;
+    font-size: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .5s ease;
+    border: 2px solid transparent;
+    display: none;
+}
+
+.restart:hover {
+    background-color: #E90004;
+    color: #F8FF0A;
+    border: 2px solid black;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
