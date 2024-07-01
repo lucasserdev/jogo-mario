@@ -5,12 +5,7 @@ const gameOver = document.querySelector('.gameOver');
 const restart = document.querySelector('.restart');
 const pipePositionNew = +window.getComputedStyle(mario).left.replace('px', '');
 
-
-
 let gameOn = false;
-let score = 0;
-let fast = 3;
-
 
 const jump = () => {
     mario.classList.add('jump');
@@ -24,6 +19,7 @@ const loop = setInterval(() => {
     
     
     const pipePosition = pipe.offsetLeft;
+    console.log(pipePosition)
     const cloudsPosition = clouds.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
@@ -52,6 +48,8 @@ const loop = setInterval(() => {
 
 }, 10);
 
+let score = 0;
+
 const points = setInterval(() => {
     
     score++;
@@ -65,6 +63,8 @@ const points = setInterval(() => {
     }
 
 }, 100);
+
+let fast = 3;
 
 const speed = setInterval(() => {
     fast -= 0.001;

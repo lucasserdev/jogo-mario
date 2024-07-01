@@ -15,16 +15,11 @@ body {
     width: 100vw;
     height: 100vh;
 
-    background-image: url('../../images/bg.png');
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
 }
 
 .game-board {
     width: 100%;
     height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35);
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -71,15 +66,27 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -46%);
+    transform: translate(-50%, -44.5%);
     display: none;
     width: 800px;
 }
 
+.floor {
+    background-image: url('../../images/bg.png');
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: cover;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 490px);
+    margin-top: -10px;
+}
+
 .restart {
     margin-top: 20px;
-    background-color: #82624A;
-    border: none;
+    background-color: #B7BC73;
     padding: 20px 50px;
     border-radius: 10px;
     color: white;
@@ -88,9 +95,11 @@ body {
     font-size: 25px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: .5s ease;
-    border: 2px solid transparent;
+    transition: .3s ease;
     display: none;
+
+    width: 400px;
+    height: 100px;
 }
 
 .restart:hover {
