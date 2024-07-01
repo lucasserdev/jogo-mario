@@ -3,9 +3,13 @@ const pipe = document.querySelector('.pipe');
 const clouds = document.querySelector('.clouds');
 const gameOver = document.querySelector('.gameOver');
 const restart = document.querySelector('.restart');
+const pipePositionNew = +window.getComputedStyle(mario).left.replace('px', '');
+
+
 
 let gameOn = false;
 let score = 0;
+let fast = 3;
 
 
 const jump = () => {
@@ -18,22 +22,12 @@ const jump = () => {
 
 const loop = setInterval(() => {
     
+    
     const pipePosition = pipe.offsetLeft;
     const cloudsPosition = clouds.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
-    if (score > 0 && score <= 60) {
-        pipe.style.animation = 'pipe-animation 3s linear infinite'; 
-    } else if (score > 60 && score <= 100) {
-        pipe.style.animation = 'pipe-animation 2s linear infinite';
-        
-    } else if (score > 100 && score <= 200) {
-        pipe.style.animation = 'pipe-animation 1s linear infinite';
-    } else {
-        pipe.style.animation = 'pipe-animation .5s linear infinite';
-    }
-    
-    
+
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
 
         pipe.style.animation = 'none';
@@ -71,6 +65,16 @@ const points = setInterval(() => {
     }
 
 }, 100);
+
+const speed = setInterval(() => {
+    fast -= 0.001;
+    pipe.style.animation = `pipe-animation ${fast}s linear infinite`;
+    if(gameOn == true) {
+        clearInterval(speed);
+    }
+    
+}, 50);
+
 
 restart.addEventListener('click', () => {
     location.reload();
