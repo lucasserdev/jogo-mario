@@ -62,8 +62,6 @@ const points = setInterval(() => {
     
     score++;
 
-   
-
     const scores = document.querySelector('.score');
     scores.textContent = score;
 
